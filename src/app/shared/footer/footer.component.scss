@@ -1,0 +1,30 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  width: 100%;
+  height: 232px;
+  background-color: #1d1b20;
+  color: white;
+  padding: 0 256px;
+}
+
+.logo img {
+  width: 162px;
+  height: 40px;
+}
+
+.logo {
+  width: 426px;
+  height: 112px;
+}
+
+.socials {
+  text-align: center;
+}
+
+.socials__icons {
+  display: flex;
+  justify-content: space-around;
+}

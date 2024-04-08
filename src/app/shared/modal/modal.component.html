@@ -1,0 +1,43 @@
+<section class="modal">
+  <h1 mat-dialog-title>Travelers</h1>
+  <div mat-dialog-content>
+    <div class="select-age">
+      <app-traveler-selector
+        title="Adults"
+        subTitle="(Above 12)"
+        [formControl]="service.obtainControl('adults')"
+      ></app-traveler-selector>
+      <app-traveler-selector
+        title="Children"
+        subTitle="(2 - 12)"
+        [formControl]="service.obtainControl('children')"
+      ></app-traveler-selector>
+      <app-traveler-selector
+        title="Infants"
+        subTitle="(Under 2)"
+        [formControl]="service.obtainControl('infants')"
+      ></app-traveler-selector>
+    </div>
+    <div class="select-category">
+      <p><strong>Category</strong></p>
+      <mat-chip-listbox aria-label="Seleção de passagens">
+        <mat-chip-option
+          value="Economy"
+          [selected]="service.formSearch.get('type')?.value === 'Economy'"
+          (selectionChange)="service.changeType($event, 'Economy')"
+          >Economy</mat-chip-option
+        >
+        <mat-chip-option
+          value="Executive"
+          [selected]="service.formSearch.get('type')?.value === 'Executive'"
+          (selectionChange)="service.changeType($event, 'Executive')"
+          >Executive</mat-chip-option
+        >
+      </mat-chip-listbox>
+    </div>
+  </div>
+  <div mat-dialog-actions class="modal-actions">
+    <button color="" mat-flat-button mat-dialog-close>Cancel</button>
+    <button color="primary" mat-flat-button mat-dialog-close>Apply</button>
+  </div>
+</section>

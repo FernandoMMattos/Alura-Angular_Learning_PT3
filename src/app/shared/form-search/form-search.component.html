@@ -1,0 +1,68 @@
+<app-card variant="secundary" class="form-search">
+  <form [formGroup]="service.formSearch" (ngSubmit)="search()">
+    <h2>Book</h2>
+    <div class="flex-container">
+      <mat-button-toggle-group
+        aria-label="type of flight"
+        formControlName="oneWay"
+      >
+        <mat-button-toggle [value]="false">
+          <mat-icon *ngIf="!service.formSearch.get('oneWay')?.value">
+            check
+          </mat-icon>
+          Roudtrip
+        </mat-button-toggle>
+        <mat-button-toggle [value]="true">
+          <mat-icon *ngIf="service.formSearch.get('oneWay')?.value">
+            check
+          </mat-icon>
+          One-way
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <mat-chip (click)="service.openDialog()">
+        <div class="inner">
+          <mat-icon>check</mat-icon>{{ service.getTravelers() }}
+        </div>
+      </mat-chip>
+      <mat-chip (click)="service.openDialog()">
+        <div class="inner">
+          <mat-icon>check</mat-icon>{{ service.obtainControl("type").value }}
+        </div>
+      </mat-chip>
+    </div>
+    <div class="flex-container">
+      <app-dropdown-uf
+        label="Origin"
+        icon="flight_takeoff"
+        [control]="service.obtainControl('origin')"
+      ></app-dropdown-uf>
+      <button mat-icon-button (click)="service.swapDestinations()">
+        <mat-icon>sync_alt</mat-icon>
+      </button>
+      <app-dropdown-uf
+        label="Arrival"
+        icon="flight_land"
+        [control]="service.obtainControl('destination')"
+      ></app-dropdown-uf>
+      <mat-form-field class="input-container" appearance="outline">
+        <mat-label>departure</mat-label>
+        <input matInput [matDatepicker]="departure" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="departure"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #departure></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="input-container" appearance="outline">
+        <mat-label>arrival</mat-label>
+        <input matInput [matDatepicker]="arrival" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="arrival"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #arrival></mat-datepicker>
+      </mat-form-field>
+      <button mat-flat-button color="primary">BOOK</button>
+    </div>
+  </form>
+</app-card>

@@ -1,0 +1,16 @@
+.card-review {
+  background-color: #FEF7FF;
+  max-width: 320px;
+  flex-direction: row;
+  padding: 10px;
+  img {
+    max-width: 56px;
+    max-height: 56px;
+  }
+  h3 {
+    color: #1d1b20;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+}

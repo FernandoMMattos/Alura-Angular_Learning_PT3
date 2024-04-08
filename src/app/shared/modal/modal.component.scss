@@ -1,0 +1,25 @@
+.modal {
+  border: 1px solid #1d1b20;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 32px;
+  h1 {
+    font-size: 32px;
+    padding: 12px;
+  }
+  .select-age {
+    display: flex;
+    justify-content: space-between;
+  }
+  .select-category {
+    margin-top: 32px;
+    color: #1d1b20;
+  }
+  .modal-actions {
+    justify-content: space-between;
+    button {
+      width: 45%;
+    }
+  }
+}
